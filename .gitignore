@@ -1,0 +1,15 @@
+# Audit logs are evidence, but raw logs can capture whatever the agent touched.
+# Paste sanitised excerpts into the week README instead of committing them.
+logs/
+**/logs/
+
+# Local Claude Code settings are personal and should not be shared
+.claude/settings.local.json
+**/.claude/settings.local.json
+
+# Real environment files never belong in this repo
+.env
+.env.*
+
+__pycache__/
+.DS_Store

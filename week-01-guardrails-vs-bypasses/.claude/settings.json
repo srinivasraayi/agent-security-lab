@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(secrets/**)",
+      "Read(.env)",
+      "Edit(.claude/**)",
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "WebFetch"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3",
+            "args": ["${CLAUDE_PROJECT_DIR}/.claude/hooks/guard.py"],
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
